@@ -18,9 +18,9 @@ jobs:
       id-token: write       # build provenance attestation
       attestations: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
 
@@ -50,14 +50,14 @@ jobs:
           Get-Content SHA256SUMS.txt
           Pop-Location
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: lhmservice-${{ steps.ver.outputs.version }}
           path: dist/
 
       - name: Attest build provenance
         if: github.ref_type == 'tag'
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-path: 'dist/LHMService.exe'
 
