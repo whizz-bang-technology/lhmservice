@@ -50,7 +50,7 @@ jobs:
           Get-Content SHA256SUMS.txt
           Pop-Location
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: lhmservice-${{ steps.ver.outputs.version }}
           path: dist/
