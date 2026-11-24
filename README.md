@@ -67,7 +67,10 @@ automatically and the old items expire after the discovery rule's lifetime (7 da
 ## Releasing
 
 1. Update the code, merge to `main` (CI builds every push and PR).
-2. Tag: `git tag v1.2.0 && git push origin v1.2.0`
+2. Release it, any of these ways:
+   - GitHub → Actions → **Build and release** → **Run workflow**, enter the version (e.g. `1.2.0`)
+   - push a tag: `git tag v1.2.0 && git push origin v1.2.0`
+   - create a release with a new `v1.2.0` tag in the GitHub UI (the workflow attaches the files)
 3. The workflow builds on `windows-latest`, publishes a release containing `LHMService.exe`,
    `appsettings.json`, the install/uninstall scripts and `SHA256SUMS.txt`, and attaches a
    build provenance attestation to the exe. Check it with:
